@@ -162,13 +162,13 @@ module MicrosoftKiotaSerializationJson
         if !key
           temp = JsonSerializationWriter.new()
           value.serialize(temp)
-          @writer = temp.writer
+          @writer = temp.writer.compact
           return temp
         end
         begin
           temp = JsonSerializationWriter.new()
           value.serialize(temp)
-          @writer[key] = temp.writer
+          @writer[key] = temp.writer.compact
         rescue StandardError => e
           raise e.class, "no key or value included in write_boolean_value(key, value)" 
         end
