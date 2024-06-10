@@ -152,7 +152,8 @@ module MicrosoftKiotaSerializationJson
           end
         end
         @writer[key] = values.map do |v|
-          self.write_object_value(nil, v).writer
+          temp = JsonSerializationWriter.new()
+          temp.write_object_value(nil, v).writer.compact
         end
       end
     end
