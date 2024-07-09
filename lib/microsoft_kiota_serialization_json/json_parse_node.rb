@@ -12,6 +12,10 @@ module MicrosoftKiotaSerializationJson
       @current_node = node
     end
 
+    def get_object_value
+      @current_node
+    end
+
     def get_string_value
       @current_node.to_s
     end
